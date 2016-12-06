@@ -1,0 +1,21 @@
+﻿<div class="feature-container" ng-if="$ctrl.hasFeatures">
+    <md-subheader class="feature-header-container">
+            <div layout>
+                <span flex class="feature-header-title">
+                    {{$ctrl.title}}
+                </span>
+                <a ng-show="!$ctrl.showingLayer" href ng-click="$ctrl.showLayerInMap()"><md-icon>add_location</md-icon></a>
+                <a ng-show="$ctrl.showingLayer" href ng-click="$ctrl.hideLayerInMap()"><md-icon>not_interested</md-icon></a>
+                <div class="numberCircle">{{$ctrl.featureLengthDescription}}</div>
+            </div>
+    </md-subheader>
+    <div class="content"> 
+        <span ng-if="$ctrl.features.length === 0" class="text-muted">No data relevant for this property</span>
+
+        <ng-switch on="$ctrl.featureTemplateType">
+            <layer-info-html ng-switch-when="html" layer="$ctrl.layer" features="$ctrl.features" on-feature-selected="$ctrl.selectFeature(feature)"></layer-info-html>
+            <layer-info-attributes ng-switch-when="attributeList" layer="$ctrl.layer" features="$ctrl.features" on-feature-selected="$ctrl.selectFeature(feature)"></layer-info-attributes>
+        </ng-switch>
+    </div>
+</div>
+

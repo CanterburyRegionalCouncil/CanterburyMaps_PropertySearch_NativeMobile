@@ -1,0 +1,6 @@
+﻿<div class="layer-info-feature-set">
+    <div ng-click="$ctrl.highlightFeature(feature)" ng-repeat="feature in $ctrl.parsedFeatures track by feature.id" class="feature">
+        <div ng-bind-html="feature.html"></div>
+    </div>
+</div>
+

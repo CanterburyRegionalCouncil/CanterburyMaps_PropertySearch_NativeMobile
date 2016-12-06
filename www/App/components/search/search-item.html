@@ -1,0 +1,5 @@
+﻿<a class="search-item" tabindex="-1">
+    <i class="search-item-icon {{match.model.value.searchclass.toLowerCase()}}"></i>
+    <span class="search-item-label" ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+    <span class="search-item-description" ng-bind-html="match.value.keydescription"></span>
+</a>

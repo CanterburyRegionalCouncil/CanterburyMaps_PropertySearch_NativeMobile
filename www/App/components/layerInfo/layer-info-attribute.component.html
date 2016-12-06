@@ -1,0 +1,9 @@
+﻿<div class="feature" ng-click="$ctrl.highlightFeature()" ng-class="{highlighted: $ctrl.highlighted}">
+    <div class="feature-inner" layout="column" layout-padding>
+        <div ng-repeat="field in $ctrl.feature.displayFields | limitTo: $ctrl.itemsToShow" class="display-attribute" layout>
+            <span flex>{{field.label}}</span>
+            <span flex>{{field.value}}</span>
+        </div>
+    </div>
+    <show-hide ng-if="$ctrl.showHideVisible()" on-show-more="$ctrl.showMore()" on-show-less="$ctrl.showLess()"></show-hide>
+</div>

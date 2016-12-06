@@ -1,0 +1,56 @@
+﻿<div layout="column" id="property-page-container">
+    <div>
+        <header id="header" layout="row">
+            <div class="header-item">
+                <a ui-sref="root"><span class="logo"></span></a>
+            </div>
+            <div class="header-item" style="position: relative" flex>
+                <search search-text="ctrl.address"
+                        on-property-selected="ctrl.onPropertySelected(propertyAddress)"
+                        current-property="ctrl.property" />
+            </div>
+            <div class="header-item social-shares">
+                <a href=""
+                   socialshare
+                   socialshare-provider="twitter"
+                   socialshare-text="{{ctrl.shareLink()}}"
+                   socialshare-hashtags="propertyapp">
+                    <span class="fa fa-twitter"></span>
+                </a>
+                <a href=""
+                   socialshare
+                   socialshare-provider="facebook"
+                   socialshare-url="{{ctrl.shareLink()}}">
+                    <span class="fa fa-facebook"></span>
+                </a>
+                <a href=""
+                   socialshare
+                   socialshare-provider="google"
+                   socialshare-description="{{ctrl.shareLink()}}"
+                   socialshare-type="sharer"
+                   socialshare-url="{{ctrl.shareLink()}}">
+                    <span class="fa fa-google-plus"></span>
+                </a>
+            </div>
+        </header>
+    </div>
+    <div flex="100" layout="column">
+        <section layout="row" id="main-container" flex>
+            <div id="sidenav-container">
+                <md-sidenav class="md-sidenav-left"
+                            md-component-id="left"
+                            md-is-locked-open="true"
+                            md-whiteframe="4"
+                            flex>
+                    <core-info property="ctrl.property"></core-info>
+                    <div ng-repeat="layerGrouping in ctrl.groupedLayers">
+                        <layer-info-grouping layers="layerGrouping" property="ctrl.property" />
+                    </div>
+                </md-sidenav>
+            </div>
+            <div class="map-container" flex>
+                <map property="ctrl.property" layers="ctrl.layers"></map>
+            </div>
+        </section>
+    </div>
+</div>

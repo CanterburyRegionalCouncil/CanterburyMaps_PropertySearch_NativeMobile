@@ -1,0 +1,23 @@
+﻿<div class="search-component">
+    <div class="search-component-body" layout="row">
+        <div layout="column">
+            <md-icon>search</md-icon>
+        </div>
+        <div class="flex">
+            <md-autocomplete md-items="item in $ctrl.search($ctrl.searchText)"
+                             md-input-id="search"   
+                             md-search-text="$ctrl.searchText"
+                             md-selected-item="selectedItem"
+                             md-selected-item-change="$ctrl.selectItem(selectedItem)"
+                             md-item-text="item.label"
+                             md-min-length="4"
+                             md-delay="300">
+                <md-item-template>
+                    <span md-highlight-text="searchText">{{item.label}}</span>
+                </md-item-template>
+                <md-not-found>No matches found.</md-not-found>
+            </md-autocomplete>
+
+        </div>
+    </div>
+</div>

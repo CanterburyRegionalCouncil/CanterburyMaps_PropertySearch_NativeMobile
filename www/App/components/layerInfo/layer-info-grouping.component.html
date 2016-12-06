@@ -1,0 +1,17 @@
+﻿<div class="layer-group" ng-show="$ctrl.featureCount > 0">
+    <div layout layout-padding class="layer-group-heading">
+        <span flex class="group-title">
+            {{$ctrl.title}}
+        </span>
+        <div class="numberCircle">{{$ctrl.featureCountDescription()}}</div>
+        <a ng-if="!$ctrl.showFeatures" ng-click="$ctrl.toggleShowFeatures()" href><md-icon >expand_more</md-icon></a>
+        <a ng-if="$ctrl.showFeatures" ng-click="$ctrl.toggleShowFeatures()" href><md-icon>expand_less</md-icon></a>
+    </div>
+    <div class="content" ng-show="$ctrl.showFeatures">
+        <md-content>
+            <section ng-repeat="layer in $ctrl.layers">
+                <layer-info layer="layer" property="$ctrl.property" on-feature-count-updated ="$ctrl.onFeatureCountUpdated(layerId, featureCount)" />
+            </section>
+        </md-content>
+    </div>
+</div>

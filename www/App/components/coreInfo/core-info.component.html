@@ -1,0 +1,18 @@
+﻿<div class="feature-container">
+    <md-toolbar>
+        <div class="md-toolbar-tools" layout layout-padding>
+            <div layout="column">
+                <md-icon>{{$ctrl.icon}}</md-icon>
+                <span class="icon-caption" flex>{{$ctrl.iconText}}</span>
+            </div>
+            <span>Property Information</span>
+        </div>
+    </md-toolbar>
+    <div class="core-info-content"  layout="column" layout-padding>
+        <display-attribute feature="$ctrl.property.coreFeature" name="Appellation" label="Legal Description"></display-attribute>
+        <display-attribute feature="$ctrl.property.coreFeature" name="Titles"></display-attribute>
+        <display-attribute feature="$ctrl.property.coreFeature" name="Calc_Area" on-format="$ctrl.formatArea(value)" label="Area"></display-attribute>
+        <display-attribute feature="$ctrl.property.coreFeature" name="Territorial_Authority" label="Local Council"></display-attribute>
+    </div>
+</div>
+
